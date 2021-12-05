@@ -1,3 +1,5 @@
+'use strict';
+
 // 默认的权限管理类
 exports.SRAccess = require('./lib/access');
 
