@@ -1,6 +1,6 @@
 {
   "name": "egg-super-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RESTful Api、权限、数据校验、缓存等通过简单的配置即可一站式解决",
   "eggPlugin": {
     "name": "superRouter"
@@ -43,12 +43,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-super-router.git"
+    "url": "git+https://github.com/xiangsx/egg-super-router.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/xiangsx/egg/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-super-router#readme",
+  "homepage": "https://github.com/xiangsx/egg-super-router#readme",
   "author": "xiang",
   "license": "MIT"
 }
