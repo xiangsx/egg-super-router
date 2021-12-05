@@ -14,10 +14,10 @@ describe('test/super-router.test.js', () => {
   after(() => app.close());
   afterEach(mock.restore);
 
-  it('should GET /', () => {
+  it('should GET /hello', () => {
     return app.httpRequest()
-      .get('/')
-      .expect('hi, superRouter')
+      .get('/hello')
+      .expect('{"code":0,"msg":"ok","data":"hi, superRouter"}')
       .expect(200);
   });
 });
