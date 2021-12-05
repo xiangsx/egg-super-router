@@ -13,6 +13,19 @@ module.exports = app => {
             method: srRouter.EnumMethod.get,
             access: access.ACC_NONE,
             handle: app.controller.home.index
-        }
+        },{
+            url: '/myaccess',
+            params: {
+            },
+            method: srRouter.EnumMethod.get,
+            access: access.ACC_MY_ACCESS,
+            handle: app.controller.home.myaccess
+        },{
+            url: '/myerror',
+            params: {
+            },
+            method: srRouter.EnumMethod.get,
+            handle: app.controller.home.myerror
+        },
     ]);
 };

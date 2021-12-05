@@ -11,7 +11,9 @@ module.exports = {
         }
         return this[ROUTE_INFO];
     },
-
+    hasLogin() {
+        return !!this.session?.user;
+    },
     get userAccess() {
         if (!this[USER_ACCESS]) {
             this[USER_ACCESS] = this.session?.user?.access;

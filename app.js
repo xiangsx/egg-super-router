@@ -7,9 +7,8 @@ module.exports = (app) => {
     let SRError;
     if (config.superRouter
         && config.superRouter.access
-        && config.superRouter.access.enable
-        && app.config.superRouter.access.accessPaths) {
-        const accessPath = path.join(app.config.baseDir, app.config.superRouter.access.accessPath);
+        && config.superRouter.access.path) {
+        const accessPath = path.join(config.baseDir, config.superRouter.access.path);
         SRAccess = require(accessPath);
     } else {
         // 加载默认access类
@@ -17,8 +16,8 @@ module.exports = (app) => {
     }
     if (config.superRouter
         && config.superRouter.error
-        && config.superRouter.error.errorPath) {
-        const errorPath = path.join(app.config.baseDir, app.config.superRouter.error.errorPath);
+        && config.superRouter.error.path) {
+        const errorPath = path.join(config.baseDir, config.superRouter.error.path);
         SRError = require(errorPath);
     } else {
         // 加载默认error类

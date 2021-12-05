@@ -4,9 +4,9 @@
 module.exports = () => {
     return async (ctx, next) => {
         // 访问接口未定义 返错
-        const {routeInfo, session, app} = ctx;
+        const {routeInfo, session, app, hasLogin} = ctx;
         if (Number.isInteger(routeInfo.access) && routeInfo.access) {
-            if (!session.user) {
+            if (!hasLogin()) {
                 ctx.wrap(null, app.error.ERR_NOT_LOGIN);
                 return;
             }
