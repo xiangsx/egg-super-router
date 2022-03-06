@@ -1,11 +1,44 @@
-import {Application} from 'egg';
+import {Application, Controller} from 'egg';
+
+export interface ResourceParams {
+    get: object;
+    post: object;
+    put: object;
+    delete: object;
+}
+
+export type SRParams = ResourceParams | object;
+
+export interface ResourceHandle {
+    get: Function;
+    post: Function;
+    put: Function;
+    delete: Function;
+}
 
 export interface RouteInfo {
     method: EnumMethod
-    params: object,
+    params: object;
     access: number,
     url: string
-    handle: Function
+    handle: ResourceHandle | Function
+}
+
+interface RESTfulCustomConfig {
+    params?: object
+    access?: number
+    handle?: Function
+}
+
+export interface RouteConfig {
+    method: EnumMethod;
+    params?: object;
+    access?: number;
+    handle?: Function | Controller;
+    get?: RESTfulCustomConfig;
+    post?: RESTfulCustomConfig;
+    put?: RESTfulCustomConfig;
+    delete?: RESTfulCustomConfig;
 }
 
 export enum EnumMethod {
@@ -47,5 +80,5 @@ export default class SRRouter {
 
     getRouteInfo(method: Method, url: string): RouteInfo
 
-    addRoutes(routeList: RouteInfo[]): void
+    addRoutes(routeList: RouteConfig[]): void
 }

@@ -32,4 +32,10 @@ describe('test/super-router.test.js', () => {
       .expect('{"code":-12,"msg":"我的自定义错误"}')
       .expect(200);
   });
+  it('should GET /myerror/new', () => {
+    return app.httpRequest()
+      .get('/myerror')
+      .expect('{"code":-12,"msg":"我的自定义错误"}')
+      .expect(200);
+  });
 });

@@ -4,6 +4,7 @@ const joi = require('joi');
 
 module.exports = app => {
   const { access, srRouter } = app;
+  const { EnumMethod } = srRouter;
 
   srRouter.addRoutes([
     {
@@ -13,21 +14,19 @@ module.exports = app => {
         age: joi.number().min(0).max(10)
           .required(),
       },
-      method: srRouter.EnumMethod.get,
+      method: EnumMethod.get,
       access: access.ACC_NONE,
       handle: app.controller.home.index,
     }, {
       url: '/myaccess',
-      params: {
-      },
-      method: srRouter.EnumMethod.get,
-      access: access.ACC_MY_ACCESS,
+      params: {},
+      method: EnumMethod.get,
+      access: access.ACC_MY_ACC,
       handle: app.controller.home.myaccess,
     }, {
       url: '/myerror',
-      params: {
-      },
-      method: srRouter.EnumMethod.get,
+      params: {},
+      method: EnumMethod.get,
       handle: app.controller.home.myerror,
     },
   ]);
