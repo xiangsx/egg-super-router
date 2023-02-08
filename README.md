@@ -71,8 +71,12 @@ exports.superRouter = {
 see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Example
+- 配置文件预览
+```javascript
 
-<!-- example here -->
+```
+
+see [test/fixtures/apps/super-router-test](test/fixtures/apps/super-router-test) for details
 
 ## Questions & Suggestions
 

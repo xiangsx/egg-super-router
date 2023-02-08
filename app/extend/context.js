@@ -2,6 +2,7 @@
 
 const ROUTE_INFO = Symbol('Context#ROUTE_INFO');
 const USER_ACCESS = Symbol('Context#USER_ACCESS');
+const PARAMS = Symbol('Context#PARAMS');
 
 module.exports = {
   get routeInfo() {
@@ -12,6 +13,13 @@ module.exports = {
       this[ROUTE_INFO] = srRouter.getRouteInfo(this.method.toLowerCase(), this.path);
     }
     return this[ROUTE_INFO];
+  },
+  get urlParams() {
+    if (!this[PARAMS]) {
+      // 实际情况肯定更复杂
+      this[PARAMS] = { ...this.query, ...this.request.body };
+    }
+    return this[PARAMS];
   },
   hasLogin() {
     return !!(this.session && this.session.user); // eslint-disable-line
