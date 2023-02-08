@@ -15,7 +15,7 @@ module.exports = () => {
       }
       ctx.urlParams = await joi.object(routeInfo.params).unknown().validateAsync(ctx.urlParams);
     } catch (err) {
-      this.ctx.logger.error('params check failed, err = ', err);
+      ctx.logger.error('params check failed, err = ', err);
       ctx.wrap(err.message, app.error.ERR_PARAMS);
       return;
     }

@@ -22,6 +22,9 @@ module.exports = {
     }
     return this[PARAMS];
   },
+  set urlParams(v) {
+    this[PARAMS] = v;
+  },
   hasLogin() {
         return !!(this.session && this.session.user); // eslint-disable-line
   },
