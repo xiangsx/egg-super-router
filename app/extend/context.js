@@ -3,6 +3,7 @@
 const ROUTE_INFO = Symbol('Context#ROUTE_INFO');
 const USER_ACCESS = Symbol('Context#USER_ACCESS');
 const PARAMS = Symbol('Context#PARAMS');
+const SEQUENCE_NUMBER = Symbol('Context#SEQUENCE_NUMBER');
 
 module.exports = {
   get routeInfo() {
@@ -22,13 +23,19 @@ module.exports = {
     return this[PARAMS];
   },
   hasLogin() {
-    return !!(this.session && this.session.user); // eslint-disable-line
+        return !!(this.session && this.session.user); // eslint-disable-line
   },
   get userAccess() {
     if (!this[USER_ACCESS]) {
       this[USER_ACCESS] = this.session && this.session.user && this.session.user.access;
     }
     return this[USER_ACCESS];
+  },
+  get sn() {
+    if (!this[SEQUENCE_NUMBER]) {
+      this[SEQUENCE_NUMBER] = this.get('X-Request-Id');
+    }
+    return this[SEQUENCE_NUMBER];
   },
   wrap(data, errCode = 0, opts = {}) {
     if (this.reqEnd) {

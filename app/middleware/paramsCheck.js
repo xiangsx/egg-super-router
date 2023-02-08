@@ -2,9 +2,9 @@
 const joi = require('joi');
 
 
-module.exports = app => {
+module.exports = () => {
   return async function paramsCheck(ctx, next) {
-    const routeInfo = ctx.routeInfo;
+    const { routeInfo, app } = ctx;
     try {
       const { params, method } = routeInfo;
       for (const field in params) {
