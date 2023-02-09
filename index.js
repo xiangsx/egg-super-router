@@ -7,4 +7,4 @@ exports.SRAccess = require('./lib/access').SRAccess;
 exports.SRError = require('./lib/error').SRError;
 
 exports.EnumError = require('./lib/error').EnumError;
-exports.EnumAccess = require('./lib/error').EnumAccess;
+exports.EnumAccess = require('./lib/access').EnumAccess;
