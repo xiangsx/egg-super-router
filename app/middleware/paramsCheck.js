@@ -1,5 +1,6 @@
 'use strict';
 const joi = require('joi');
+const { EnumError } = require('../../lib/error');
 
 
 module.exports = () => {
@@ -16,7 +17,7 @@ module.exports = () => {
       ctx.urlParams = await joi.object(routeInfo.params).unknown().validateAsync(ctx.urlParams);
     } catch (err) {
       ctx.logger.error('params check failed, err = ', err);
-      ctx.wrap(err.message, app.error.ERR_PARAMS);
+      ctx.wrap(err.message, EnumError.ERR_PARAMS);
       return;
     }
     await next();

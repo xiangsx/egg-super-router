@@ -1,5 +1,6 @@
 'use strict';
 
+const { EnumError, EnumAccess } = require('../../../../../../index');
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
@@ -9,12 +10,12 @@ class HomeController extends Controller {
 
   async myaccess() {
     this.ctx.session = {};
-    this.ctx.session.user = { access: this.app.access.ACC_LOGIN };
+    this.ctx.session.user = { access: EnumAccess.ACC_LOGIN };
     this.ctx.wrap();
   }
 
   async myerror() {
-    this.ctx.wrap(null, this.app.error.ERR_MY_ERROR);
+    this.ctx.wrap(null, EnumError.ERR_MY_ERROR);
   }
 }
 
