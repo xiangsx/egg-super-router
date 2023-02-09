@@ -5,3 +5,6 @@ exports.SRAccess = require('./lib/access').SRAccess;
 
 // 默认的错误管理类
 exports.SRError = require('./lib/error').SRError;
+
+exports.EnumError = require('./lib/error').EnumError;
+exports.EnumAccess = require('./lib/error').EnumAccess;
