@@ -1,6 +1,6 @@
 'use strict';
 
-const SRErrorBase = require('../../../../../lib/error');
+const SRErrorBase = require('../../../../../lib/error').SRError;
 
 class MyError extends SRErrorBase {
   constructor(props) {
@@ -10,4 +10,4 @@ class MyError extends SRErrorBase {
   }
 }
 
-module.exports = MyError;
+module.exports = { SRError: MyError };

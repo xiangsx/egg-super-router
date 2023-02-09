@@ -10,19 +10,19 @@ module.exports = app => {
         && config.superRouter.access
         && config.superRouter.access.path) {
     const accessPath = path.join(config.baseDir, config.superRouter.access.path);
-    SRAccess = require(accessPath);
+    SRAccess = require(accessPath).SRAccess;
   } else {
     // 加载默认access类
-    SRAccess = require('./lib/access');
+    SRAccess = require('./lib/access').SRAccess;
   }
   if (config.superRouter
         && config.superRouter.error
         && config.superRouter.error.path) {
     const errorPath = path.join(config.baseDir, config.superRouter.error.path);
-    SRError = require(errorPath);
+    SRError = require(errorPath).SRError;
   } else {
     // 加载默认error类
-    SRError = require('./lib/error');
+    SRError = require('./lib/error').SRError;
   }
   app.access = new SRAccess(app);
   app.error = new SRError(app);
