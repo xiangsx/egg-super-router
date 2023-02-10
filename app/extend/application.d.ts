@@ -1,5 +1,5 @@
 import {Application} from 'egg';
-import SRRouter from "../../lib/routes";
+import {SRRouter} from "../../lib/routes";
 import {SRAccess, SRError} from "../../index";
 
 

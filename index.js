@@ -8,3 +8,4 @@ exports.SRError = require('./lib/error').SRError;
 
 exports.EnumError = require('./lib/error').EnumError;
 exports.EnumAccess = require('./lib/access').EnumAccess;
+exports.EnumMethod = require('./lib/routes').EnumMethod;
