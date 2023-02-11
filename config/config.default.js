@@ -13,4 +13,7 @@ exports.superRouter = {
   error: {
     // errorPath: 'lib/error.js'
   },
+  swagger: {
+    options: {},
+  },
 };

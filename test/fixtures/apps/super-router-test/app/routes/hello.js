@@ -1,10 +1,10 @@
 'use strict';
 
 const joi = require('joi');
+const { EnumMethod } = require('../../../../../../index');
 
 module.exports = app => {
   const { access, srRouter } = app;
-  const { EnumMethod } = srRouter;
 
   srRouter.addRoutes([
     {

@@ -1,6 +1,6 @@
 'use strict';
 
-const SRRouter = require('../../lib/routes');
+const { SRRouter } = require('../../lib/routes');
 const path = require('path');
 
 const ROUTE_DEFINE = Symbol('Application#routeDefine');

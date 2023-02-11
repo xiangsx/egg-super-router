@@ -17,11 +17,14 @@ export interface ResourceHandle {
 }
 
 export interface RouteInfo {
-    method: EnumMethod
+    method: EnumMethod;
     params: object;
-    access: number,
-    url: string
-    handle: ResourceHandle | Function
+    access: number;
+    url: string;
+    handle: ResourceHandle | Function;
+    summary: string;
+    tags: string[];
+    responses: object;
 }
 
 interface RESTfulCustomConfig {

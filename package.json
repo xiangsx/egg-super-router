@@ -1,6 +1,6 @@
 {
   "name": "egg-super-router",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "RESTful Api、权限、数据校验、缓存等通过简单的配置即可一站式解决",
   "eggPlugin": {
     "name": "superRouter"
@@ -11,7 +11,8 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "joi": "^17.5.0"
+    "joi": "^17.5.0",
+    "koa-joi-swagger": "^1.1.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",

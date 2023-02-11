@@ -32,5 +32,9 @@ module.exports = app => {
     target: app.routes,
     inject: outApp,
   }).load();
+  if (config.superRouter && config.superRouter.swagger) {
+    app.srRouter.setSwaggerOpt(config.superRouter.swagger.options);
+  }
+  app.srRouter.setSwaggerOpt();
   app.config.coreMiddleware.push('routeCheck', 'access', 'paramsCheck');
 };
