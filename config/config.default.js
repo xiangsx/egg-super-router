@@ -14,6 +14,8 @@ exports.superRouter = {
     // errorPath: 'lib/error.js'
   },
   swagger: {
-    options: {},
+    enable: true,
+    docPath: './app/public/swagger/swagger.json',
+    docUrl: 'localhost:7001/swagger/swagger.json',
   },
 };
