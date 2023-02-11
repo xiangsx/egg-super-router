@@ -36,5 +36,5 @@ module.exports = app => {
     app.srRouter.setSwaggerOpt(config.superRouter.swagger.options);
   }
   app.srRouter.setSwaggerOpt();
-  app.config.coreMiddleware.push('routeCheck', 'access', 'paramsCheck', 'swagger');
+  app.config.coreMiddleware.push('swagger', 'routeCheck', 'access', 'paramsCheck');
 };
