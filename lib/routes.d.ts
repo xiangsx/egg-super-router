@@ -19,6 +19,7 @@ export interface ResourceHandle {
 export interface RouteInfo {
     method: EnumMethod;
     params: object;
+    paramsDescriptions: object;
     access: number;
     url: string;
     handle: ResourceHandle | Function;
