@@ -1,6 +1,6 @@
 {
   "name": "egg-super-router",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "RESTful Api、权限、数据校验、缓存等通过简单的配置即可一站式解决",
   "eggPlugin": {
     "name": "superRouter"

@@ -2,5 +2,9 @@
 
 const { koaSwagger } = require('koa2-swagger-ui');
 module.exports = (options, app) => {
-  return koaSwagger({ routePrefix: '/swagger', swaggerOptions: app.srRouter.getSwaggerDoc() });
+  let docUrl = '';
+  if (app.config.superRouter && app.config.superRouter.swagger) {
+    docUrl = app.config.superRouter.swagger.url;
+  }
+  return koaSwagger({ routePrefix: '/swagger', swaggerOptions: { url: docUrl } });
 };
