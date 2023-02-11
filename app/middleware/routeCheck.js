@@ -8,6 +8,7 @@ module.exports = () => {
       ctx.logger.debug(`[${ctx.ip} ${ctx.method} ${ctx.path}] ${JSON.stringify(ctx.urlParams)
       } route define not existed`);
       ctx.wrap(null, EnumError.ERR_ROUTE);
+      await next();
       return;
     }
     ctx.logger.debug(`[request] [${ctx.ip} ${ctx.method} ${ctx.path}] ${JSON.stringify(ctx.urlParams)}`);
