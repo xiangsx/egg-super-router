@@ -8,7 +8,7 @@ module.exports = () => {
     const { routeInfo, app } = ctx;
     let allowUnknown = true;
     if (app && app.config && app.config.superRouter && app.config.superRouter.params) {
-      allowUnknown = app.superRouter.params.allowUnknown;
+      allowUnknown = app.config.superRouter.params.allowUnknown;
     }
     try {
       const { params, method } = routeInfo;
