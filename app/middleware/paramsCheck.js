@@ -7,7 +7,7 @@ module.exports = () => {
   return async function paramsCheck(ctx, next) {
     const { routeInfo, app } = ctx;
     let allowUnknown = true;
-    if (app && app.config && app.config.superRouter && app.superRouter.params) {
+    if (app && app.config && app.config.superRouter && app.config.superRouter.params) {
       allowUnknown = app.superRouter.params.allowUnknown;
     }
     try {
