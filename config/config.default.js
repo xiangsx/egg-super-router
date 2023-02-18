@@ -18,4 +18,7 @@ exports.superRouter = {
     docPath: './app/public/swagger/swagger.json',
     docUrl: 'localhost:7001/swagger/swagger.json',
   },
+  params: {
+    allowUnknown: true,
+  },
 };

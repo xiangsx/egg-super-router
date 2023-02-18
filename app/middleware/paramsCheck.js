@@ -6,9 +6,9 @@ const { EnumError } = require('../../lib/error');
 module.exports = () => {
   return async function paramsCheck(ctx, next) {
     const { routeInfo, app } = ctx;
-    let allowUnknow = true;
+    let allowUnknown = true;
     if (app && app.config && app.config.superRouter && app.superRouter.params) {
-      allowUnknow = app.superRouter.params.allowUnknow;
+      allowUnknown = app.superRouter.params.allowUnknown;
     }
     try {
       const { params, method } = routeInfo;
@@ -18,7 +18,7 @@ module.exports = () => {
           ctx.urlParams[field] = ctx.queries[field];
         }
       }
-      ctx.urlParams = await joi.object(routeInfo.params).unknown(allowUnknow).validateAsync(ctx.urlParams);
+      ctx.urlParams = await joi.object(routeInfo.params).unknown(allowUnknown).validateAsync(ctx.urlParams);
     } catch (err) {
       ctx.logger.error('params check failed, err = ', err);
       ctx.wrap(err.message, EnumError.ERR_PARAMS);
