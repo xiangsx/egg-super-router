@@ -11,7 +11,7 @@ module.exports = () => {
         ctx.wrap(null, EnumError.ERR_NOT_LOGIN);
         return;
       }
-      if (!app.access.checkAccess(ctx.userAccess, routeInfo.access)) {
+      if (!app.access.checkAccess(ctx.userAccess, routeInfo.access, ctx)) {
         ctx.wrap(`访问被拒绝，需要${app.access.getAccessInfo(routeInfo.access).msg}权限`, EnumError.ERR_ACCESS);
         return;
       }
