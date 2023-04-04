@@ -11,9 +11,9 @@ module.exports = () => {
         ctx.wrap(null, EnumError.ERR_NOT_LOGIN);
         return;
       }
-      const [ ok, msg ] = app.access.checkAccess(ctx.userAccess, routeInfo.access, ctx);
+      const [ ok, msg, status ] = app.access.checkAccess(ctx.userAccess, routeInfo.access, ctx);
       if (!ok) {
-        ctx.wrap(null, EnumError.ERR_ACCESS, { msg });
+        ctx.wrap(null, EnumError.ERR_ACCESS, { msg, status });
         return;
       }
     }
