@@ -21,4 +21,7 @@ exports.superRouter = {
   params: {
     allowUnknown: true,
   },
+  rateLimit: {
+    enable: true,
+  },
 };

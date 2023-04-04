@@ -17,6 +17,10 @@ class HomeController extends Controller {
   async myerror() {
     this.ctx.wrap(null, EnumError.ERR_MY_ERROR);
   }
+
+  async limittest() {
+    this.ctx.wrap({ ok: true });
+  }
 }
 
 module.exports = HomeController;

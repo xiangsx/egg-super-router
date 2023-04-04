@@ -1,4 +1,5 @@
 import {Application, Controller} from 'egg';
+import {RateLimitConfig} from "../app/middleware/ratelimit";
 
 export interface ResourceParams {
     get: object;
@@ -26,6 +27,7 @@ export interface RouteInfo {
     summary: string;
     tags: string[];
     responses: object;
+    limit: RateLimitConfig;
 }
 
 interface RESTfulCustomConfig {

@@ -1,5 +1,6 @@
 'use strict';
 const path = require('path');
+const ratelimit = require('./app/middleware/ratelimit');
 
 module.exports = app => {
 
@@ -26,6 +27,9 @@ module.exports = app => {
   }
   app.access = new SRAccess(app);
   app.error = new SRError(app);
+  if (config && config.superRouter && config.superRouter.rateLimit && config.superRouter.rateLimit.enable) {
+    ratelimit.init(config.superRouter.rateLimit, app);
+  }
   app.routes = {};
   app.srLoadRoutes = outApp => new app.loader.FileLoader({
     directory: path.join(app.config.baseDir, app.config.superRouter.routesPath || 'app/routes'),
