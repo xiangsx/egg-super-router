@@ -10,6 +10,9 @@ module.exports = () => {
     if (app && app.config && app.config.superRouter && app.config.superRouter.params) {
       allowUnknown = app.config.superRouter.params.allowUnknown;
     }
+    if (typeof routeInfo.allowUnknown !== 'undefined') {
+      allowUnknown = routeInfo.allowUnknown;
+    }
     try {
       const { params, method } = routeInfo;
       for (const field in params) {
