@@ -7,7 +7,7 @@ module.exports = () => {
     // 访问接口未定义 返错
     const { routeInfo, app } = ctx;
     if (routeInfo.access) {
-      if (!ctx.hasLogin()) {
+      if (typeof routeInfo.access !== 'function' && !ctx.hasLogin()) {
         ctx.wrap(null, EnumError.ERR_NOT_LOGIN);
         return;
       }
