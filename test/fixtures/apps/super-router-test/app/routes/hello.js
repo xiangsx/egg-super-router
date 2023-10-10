@@ -38,5 +38,15 @@ module.exports = app => {
       method: EnumMethod.get,
       handle: app.controller.home.limittest,
     },
+    {
+      url: '/:param/testparams',
+      params: {},
+      limit: {
+        interval: { min: 1 },
+        max: 3,
+      },
+      method: EnumMethod.get,
+      handle: app.controller.home.testparams,
+    },
   ]);
 };

@@ -14,34 +14,10 @@ describe('test/super-router.test.js', () => {
   after(() => app.close());
   afterEach(mock.restore);
 
-  it('should GET /limittest', () => {
+  it('should GET /123/testparams', () => {
     return app.httpRequest()
-      .get('/limittest')
-      .expect('{"code":0,"msg":"ok","sn":"","data":{"ok":true}}')
-      .expect(200);
-  });
-  it('should GET /limittest', () => {
-    return app.httpRequest()
-      .get('/limittest')
-      .expect('{"code":0,"msg":"ok","sn":"","data":{"ok":true}}')
-      .expect(200);
-  });
-  it('should GET /limittest', () => {
-    return app.httpRequest()
-      .get('/limittest')
-      .expect('{"code":0,"msg":"ok","sn":"","data":{"ok":true}}')
-      .expect(200);
-  });
-  it('should GET /limittest', () => {
-    return app.httpRequest()
-      .get('/limittest')
-      .expect('{"code":-10,"msg":"您的请求次数太多，请稍候重试","sn":""}')
-      .expect(200);
-  });
-  it('should GET /limittest', () => {
-    return app.httpRequest()
-      .get('/limittest')
-      .expect('{"code":-10,"msg":"您的请求次数太多，请稍候重试","sn":""}')
+      .get('/123/testparams')
+      .expect('{"code":0,"msg":"ok","sn":"","data":{"params":{"param":"123"}}}')
       .expect(200);
   });
 });

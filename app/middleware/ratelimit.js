@@ -104,7 +104,13 @@ exports.init = (options, app) => {
       ctx.wrap(null, -10);
     },
   };
-  if (app.redis) {
+  if (!app.redis) {
+    app.logger.error('redis not init');
+    return;
+  }
+  if (app.config.superRouter.rateLimit && app.config.superRouter.rateLimit.redis) {
+    config.store = new RedisStore(app.redis.get(app.config.superRouter.rateLimit.redis));
+  } else {
     config.store = new RedisStore(app.redis);
   }
   RateLimit.defaultOptions(config);

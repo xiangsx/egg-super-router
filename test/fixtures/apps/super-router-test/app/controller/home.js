@@ -21,6 +21,10 @@ class HomeController extends Controller {
   async limittest() {
     this.ctx.wrap({ ok: true });
   }
+
+  async testparams() {
+    this.ctx.wrap({ params: this.ctx.params });
+  }
 }
 
 module.exports = HomeController;

@@ -6,15 +6,6 @@ const PARAMS = Symbol('Context#PARAMS');
 const SEQUENCE_NUMBER = Symbol('Context#SEQUENCE_NUMBER');
 
 module.exports = {
-  get routeInfo() {
-    if (!this[ROUTE_INFO]) {
-      const { app } = this;
-      const { srRouter } = app;
-      // @ts-ignore
-      this[ROUTE_INFO] = srRouter.getRouteInfo(this.method.toLowerCase(), this.path);
-    }
-    return this[ROUTE_INFO];
-  },
   get urlParams() {
     if (!this[PARAMS]) {
       // 实际情况肯定更复杂
