@@ -28,6 +28,7 @@ export interface RouteInfo {
     tags: string[];
     responses: object;
     limit: RateLimitConfig;
+    middleware: Function[]
 }
 
 interface RESTfulCustomConfig {
